@@ -6,7 +6,7 @@
         "laravel",
         "custom-fields"
     ],
-    "version": "0.2.1",
+    "version": "0.2.2",
     "homepage": "https://github.com/hungrybus/filament-custom-fields",
     "support": {
         "issues": "https://github.com/hungrybus/filament-custom-fields/issues",

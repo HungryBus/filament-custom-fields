@@ -21,7 +21,10 @@ class FieldsService
         return Field::model($model)
             ->when(
                 config('custom-fields.use_tenants'),
-                static fn (Builder $query): Builder => $query->where('tenant_id', Filament::getTenant()->getKey())
+                static fn (Builder $query): Builder => $query->where(
+                    config('custom-fields.tenant_key'),
+                    Filament::getTenant()->getKey()
+                )
             )
             ->when(
                 $closure,
@@ -38,7 +41,10 @@ class FieldsService
         return Field::model($model)
             ->when(
                 config('custom-fields.use_tenants'),
-                static fn ($query) => $query->where('tenant_id', Filament::getTenant()->getKey())
+                static fn ($query) => $query->where(
+                    config('custom-fields.tenant_key'),
+                    Filament::getTenant()->getKey()
+                )
             )
             ->when(
                 $closure,
